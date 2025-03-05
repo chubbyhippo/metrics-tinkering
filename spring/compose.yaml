@@ -47,19 +47,6 @@ services:
     mem_reservation: 128m
     cpus: "0.5"
 
-  gatling:
-    image: denvazh/gatling:3.7.6 # Gatling Docker image for load testing
-    container_name: gatling
-    volumes:
-      - ./gatling-simulations:/opt/gatling/user-files/simulations
-    entrypoint: >
-      /bin/sh -c "gatling.sh -s com.example.MySimulation"
-    networks:
-      - monitoring
-    mem_limit: 512m
-    mem_reservation: 256m
-    cpus: "1.0"
-
 networks:
   monitoring:
     driver: bridge
